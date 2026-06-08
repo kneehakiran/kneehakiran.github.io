@@ -3,358 +3,490 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neeha Kiran | Python Dev & Cybersecurity Student</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Neeha Kiran Kambala — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --cyan:#00e5ff;
-  --purple:#c084fc;
-  --green:#4ade80;
-  --amber:#fbbf24;
-  --bg:#060a10;
-  --bg2:#0d1117;
-  --glass:rgba(255,255,255,0.03);
-  --border:rgba(0,229,255,0.12);
-  --text:#dbeafe;
-  --dim:#64748b;
-  --font:'Syne',sans-serif;
-  --mono:'Share Tech Mono',monospace;
-}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--font);overflow-x:hidden;}
+  :root {
+    --navy: #0D1B2A;
+    --navy2: #1B2A4A;
+    --blue: #2563EB;
+    --cyan: #06B6D4;
+    --bg: #F8F9FB;
+    --card: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --accent: #EFF6FF;
+  }
 
-/* BG */
-#bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:.9rem 1.5rem;
-  display:flex;justify-content:space-between;align-items:center;
-  background:rgba(6,10,16,0.85);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.logo{
-  font-family:var(--mono);font-size:.85rem;
-  color:var(--cyan);letter-spacing:2px;
-}
-.logo span{color:var(--dim);}
-.nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:.2s;}
-.nav-links a:hover{color:var(--cyan);}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.ham span{width:22px;height:1.5px;background:var(--cyan);transition:.3s;}
-.mob{display:none;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(6,10,16,0.98);border-bottom:1px solid var(--border);padding:1.2rem 1.5rem;z-index:99;backdrop-filter:blur(16px);}
-.mob.open{display:flex;}
-.mob a{font-family:var(--mono);font-size:.75rem;color:var(--dim);text-decoration:none;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,0.04);letter-spacing:2px;}
-.mob a:hover{color:var(--cyan);}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
 
-/* SECTIONS */
-section{position:relative;z-index:2;padding:5rem 1.5rem;}
-.wrap{max-width:960px;margin:0 auto;}
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,249,251,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem; color: var(--navy2); letter-spacing: .02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: .85rem; font-weight: 500; color: var(--muted);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
 
-/* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;padding-top:70px;}
-.hero-eyebrow{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:4px;margin-bottom:1.2rem;opacity:0;animation:up .5s .2s forwards;}
-.hero-name{font-size:clamp(2.8rem,8vw,5.5rem);font-weight:800;line-height:1.05;margin-bottom:1rem;opacity:0;animation:up .5s .4s forwards;}
-.hero-name .first{color:var(--text);}
-.hero-name .last{
-  background:linear-gradient(120deg,var(--cyan),var(--purple));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 24px rgba(0,229,255,.3));
-}
-.hero-typed{font-family:var(--mono);font-size:clamp(.8rem,2vw,.95rem);color:var(--dim);margin-bottom:1.5rem;min-height:1.4rem;opacity:0;animation:up .5s .6s forwards;}
-.cursor-b{color:var(--cyan);animation:blink 1s infinite;}
-@keyframes blink{50%{opacity:0;}}
-.hero-desc{font-size:1.05rem;color:var(--dim);max-width:500px;line-height:1.8;margin-bottom:2rem;opacity:0;animation:up .5s .8s forwards;}
-.hero-desc strong{color:var(--text);}
-.btns{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:up .5s 1s forwards;}
-.btn{
-  padding:.65rem 1.6rem;font-family:var(--mono);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.25s;
-}
-.btn-p{background:var(--cyan);color:#060a10;border:1px solid var(--cyan);}
-.btn-p:hover{background:transparent;color:var(--cyan);}
-.btn-o{background:transparent;color:var(--cyan);border:1px solid rgba(0,229,255,.4);}
-.btn-o:hover{background:rgba(0,229,255,.08);}
-.stats{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;opacity:0;animation:up .5s 1.2s forwards;}
-.stat .n{font-family:var(--mono);font-size:1.8rem;color:var(--cyan);font-weight:700;}
-.stat .l{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:2px;margin-top:.2rem;}
-@keyframes up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 80px 2rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+    gap: 4rem;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem; color: var(--blue);
+    background: var(--accent);
+    padding: 4px 12px; border-radius: 20px;
+    margin-bottom: 1.25rem;
+    border: 1px solid #BFDBFE;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: .75rem;
+  }
+  .hero h1 span { color: var(--blue); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--muted);
+    margin-bottom: 1.5rem; max-width: 480px;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+  .tag {
+    font-size: .78rem; font-weight: 500;
+    padding: 4px 12px; border-radius: 20px;
+    background: var(--card); border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 10px 24px; border-radius: 8px;
+    background: var(--navy2); color: white;
+    font-size: .9rem; font-weight: 500;
+    text-decoration: none; transition: all .2s;
+  }
+  .btn-primary:hover { background: var(--blue); transform: translateY(-1px); }
+  .btn-outline {
+    padding: 10px 24px; border-radius: 8px;
+    border: 1.5px solid var(--border); color: var(--text);
+    font-size: .9rem; font-weight: 500;
+    text-decoration: none; transition: all .2s;
+    background: var(--card);
+  }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
-/* SECTION HEADER */
-.sh{margin-bottom:2.5rem;}
-.sh-tag{font-family:var(--mono);font-size:.65rem;color:var(--green);letter-spacing:4px;margin-bottom:.4rem;}
-.sh-title{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;color:var(--text);}
-.sh-line{width:40px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));margin-top:.8rem;}
+  .hero-visual {
+    flex: 0 0 300px;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  .stat-card:nth-child(2) { animation-delay: .5s; margin-left: 2rem; }
+  .stat-card:nth-child(3) { animation-delay: 1s; }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--navy2);
+  }
+  .stat-label { font-size: .8rem; color: var(--muted); margin-top: 2px; }
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;}
-.about-p{font-size:1rem;color:var(--dim);line-height:1.85;margin-bottom:1rem;}
-.about-p strong{color:var(--text);}
-.atags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
-.atag{font-family:var(--mono);font-size:.65rem;padding:.25rem .75rem;border:1px solid rgba(0,229,255,.2);color:var(--cyan);background:rgba(0,229,255,.04);}
-.infos{display:flex;flex-direction:column;gap:.8rem;}
-.icard{padding:1rem 1.2rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);display:flex;gap:.9rem;align-items:center;transition:.25s;}
-.icard:hover{border-color:rgba(0,229,255,.3);transform:translateX(4px);}
-.icard .ic{font-size:1.2rem;min-width:32px;text-align:center;}
-.icard small{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:1px;}
-.icard p{font-size:.88rem;color:var(--text);margin-top:.15rem;}
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .sec-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem; color: var(--blue);
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .sec-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--navy); margin-bottom: 3rem;
+  }
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
-.sk{padding:1.2rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);transition:.25s;position:relative;overflow:hidden;}
-.sk::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));transform:scaleX(0);transform-origin:left;transition:.3s;}
-.sk:hover::before{transform:scaleX(1);}
-.sk:hover{border-color:rgba(0,229,255,.25);transform:translateY(-2px);}
-.sk-cat{font-family:var(--mono);font-size:.6rem;color:var(--green);letter-spacing:3px;text-transform:uppercase;margin-bottom:.9rem;}
-.sk-items{display:flex;flex-wrap:wrap;gap:.4rem;}
-.sp{font-family:var(--mono);font-size:.68rem;padding:.22rem .65rem;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.15);color:var(--text);transition:.2s;}
-.sp:hover{color:var(--cyan);background:rgba(0,229,255,.12);}
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all .25s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0; transition: opacity .25s;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+  .project-card:hover::before { opacity: 1; }
+  .project-icon {
+    font-size: 1.75rem; margin-bottom: .875rem;
+  }
+  .project-card h3 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--navy); margin-bottom: .4rem;
+  }
+  .project-card p {
+    font-size: .85rem; color: var(--muted);
+    line-height: 1.6; margin-bottom: 1rem;
+  }
+  .project-tech { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .7rem; padding: 2px 8px;
+    background: var(--accent); color: var(--blue);
+    border-radius: 4px;
+  }
+  .project-links { display: flex; gap: .75rem; }
+  .project-link {
+    font-size: .8rem; font-weight: 500; color: var(--blue);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .project-link:hover { text-decoration: underline; }
+  .live-badge {
+    display: inline-block; font-size: .65rem; font-weight: 600;
+    padding: 2px 7px; border-radius: 20px;
+    background: #DCFCE7; color: #166534;
+    margin-left: .5rem;
+  }
 
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem;}
-.pc{padding:1.6rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);transition:.25s;display:flex;flex-direction:column;position:relative;}
-.pc:hover{border-color:rgba(0,229,255,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,229,255,.07);}
-.pc-num{position:absolute;top:.8rem;right:1rem;font-family:var(--mono);font-size:2.5rem;color:rgba(0,229,255,.05);font-weight:700;line-height:1;}
-.badge{display:inline-block;font-family:var(--mono);font-size:.58rem;padding:.18rem .6rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:.9rem;}
-.live{background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);color:var(--green);}
-.wip{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);color:var(--amber);}
-.pc-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.6rem;}
-.pc-desc{font-size:.875rem;color:var(--dim);line-height:1.7;flex:1;margin-bottom:1rem;}
-.techs{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem;}
-.tt{font-family:var(--mono);font-size:.62rem;padding:.18rem .55rem;background:rgba(192,132,252,.07);border:1px solid rgba(192,132,252,.2);color:rgba(192,132,252,.85);}
-.plink{font-family:var(--mono);font-size:.68rem;color:var(--cyan);text-decoration:none;letter-spacing:1px;transition:letter-spacing .2s;}
-.plink:hover{letter-spacing:2px;}
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .skill-group {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem;
+  }
+  .skill-group h4 {
+    font-size: .8rem; font-weight: 600; color: var(--blue);
+    text-transform: uppercase; letter-spacing: .06em;
+    margin-bottom: .75rem;
+  }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .skill-pill {
+    font-size: .78rem; padding: 3px 10px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 20px; color: var(--text);
+  }
 
-/* TIMELINE */
-.tl{position:relative;padding-left:1.8rem;}
-.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,var(--cyan),var(--purple),transparent);}
-.tli{position:relative;margin-bottom:2rem;}
-.tl-dot{position:absolute;left:-2.25rem;top:.35rem;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);border:2px solid var(--bg);}
-.tli:nth-child(2) .tl-dot{background:var(--purple);box-shadow:0 0 12px var(--purple);}
-.tli:nth-child(3) .tl-dot{background:var(--green);box-shadow:0 0 12px var(--green);}
-.tl-date{font-family:var(--mono);font-size:.62rem;color:var(--cyan);letter-spacing:2px;margin-bottom:.45rem;}
-.tli:nth-child(2) .tl-date{color:var(--purple);}
-.tli:nth-child(3) .tl-date{color:var(--green);}
-.tl-card{padding:1.2rem 1.4rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);transition:.25s;}
-.tl-card:hover{border-color:rgba(0,229,255,.25);}
-.tl-role{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
-.tl-org{font-family:var(--mono);font-size:.68rem;color:var(--dim);margin-bottom:.7rem;}
-.tl-bul{list-style:none;}
-.tl-bul li{font-size:.875rem;color:var(--dim);padding:.18rem 0 .18rem 1rem;position:relative;line-height:1.6;}
-.tl-bul li::before{content:'▸';position:absolute;left:0;color:var(--cyan);}
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .exp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+  .exp-dot {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--accent); display: flex; align-items: center;
+    justify-content: center; font-size: 1.25rem; flex-shrink: 0;
+  }
+  .exp-content h3 { font-size: .95rem; font-weight: 600; color: var(--navy); }
+  .exp-content .exp-org { font-size: .83rem; color: var(--blue); font-weight: 500; margin: 2px 0; }
+  .exp-content .exp-date { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
+  .exp-content p { font-size: .83rem; color: var(--muted); line-height: 1.6; }
 
-/* CERTS */
-.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.9rem;}
-.cc{padding:1rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);text-align:center;transition:.25s;}
-.cc:hover{border-color:rgba(0,229,255,.3);transform:translateY(-2px);}
-.cc-ic{font-size:1.6rem;margin-bottom:.6rem;}
-.cc-name{font-size:.82rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:.3rem;}
-.cc-iss{font-family:var(--mono);font-size:.6rem;color:var(--dim);}
+  /* CERTS */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .875rem; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.25rem;
+    display: flex; gap: .75rem; align-items: center;
+  }
+  .cert-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .cert-card h4 { font-size: .83rem; font-weight: 600; color: var(--navy); }
+  .cert-card p { font-size: .75rem; color: var(--muted); margin-top: 1px; }
 
-/* ACHIEVEMENTS */
-.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
-.ac{padding:1.2rem;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);display:flex;gap:.9rem;align-items:flex-start;transition:.25s;}
-.ac:hover{border-color:rgba(0,229,255,.25);transform:translateX(4px);}
-.ac-ic{font-size:1.5rem;min-width:36px;text-align:center;}
-.ac-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.2rem;line-height:1.4;}
-.ac-sub{font-family:var(--mono);font-size:.62rem;color:var(--dim);}
+  /* FORAGE */
+  .forage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .875rem; }
+  .forage-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem 1.25rem; text-align: center;
+  }
+  .forage-card .company { font-weight: 600; font-size: .88rem; color: var(--navy); margin-bottom: .25rem; }
+  .forage-card .topic { font-size: .75rem; color: var(--muted); line-height: 1.4; }
 
-/* CONTACT */
-.ct-wrap{max-width:580px;margin:0 auto;text-align:center;}
-.ct-desc{font-size:1rem;color:var(--dim);line-height:1.8;margin-bottom:1.5rem;}
-.ct-email{font-family:var(--mono);font-size:.95rem;color:var(--cyan);margin-bottom:1.8rem;}
-.ct-links{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem;}
-.cl{display:flex;align-items:center;gap:.5rem;padding:.6rem 1.3rem;font-family:var(--mono);font-size:.7rem;color:var(--text);text-decoration:none;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(8px);transition:.25s;letter-spacing:1px;}
-.cl:hover{border-color:var(--cyan);color:var(--cyan);}
+  /* CONTACT */
+  .contact-box {
+    background: var(--navy2);
+    border-radius: 20px; padding: 3rem;
+    text-align: center; color: white;
+  }
+  .contact-box h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; margin-bottom: .75rem;
+  }
+  .contact-box p { color: rgba(255,255,255,.7); margin-bottom: 2rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    padding: 10px 22px; border-radius: 8px;
+    background: rgba(255,255,255,.1);
+    color: white; text-decoration: none;
+    font-size: .88rem; font-weight: 500;
+    border: 1px solid rgba(255,255,255,.2);
+    transition: all .2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,.2); }
 
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:1.8rem;text-align:center;font-family:var(--mono);font-size:.65rem;color:var(--dim);position:relative;z-index:2;letter-spacing:2px;}
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2rem;
+    font-size: .8rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
 
-/* REVEAL */
-.rev{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
-.rev.on{opacity:1;transform:none;}
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeIn .6s forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in:nth-child(1) { animation-delay: .1s; }
+  .fade-in:nth-child(2) { animation-delay: .2s; }
+  .fade-in:nth-child(3) { animation-delay: .3s; }
+  .fade-in:nth-child(4) { animation-delay: .4s; }
+  .fade-in:nth-child(5) { animation-delay: .5s; }
 
-/* RESPONSIVE */
-@media(max-width:720px){
-  .about-grid{grid-template-columns:1fr;}
-  .nav-links{display:none;}
-  .ham{display:flex;}
-  section{padding:4rem 1.2rem;}
-  .stats{gap:1.5rem;}
-  .cg{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:380px){.cg{grid-template-columns:1fr;}.stats{flex-wrap:wrap;}}
+  @media(max-width:768px) {
+    .hero { flex-direction: column; gap: 2rem; padding-top: 100px; }
+    .hero-visual { flex-direction: row; flex: unset; width: 100%; overflow-x: auto; }
+    .stat-card { min-width: 150px; }
+    .stat-card:nth-child(2) { margin-left: 0; }
+    nav .nav-links { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<canvas id="bg"></canvas>
-
+<!-- NAV -->
 <nav>
-  <div class="logo">neehakiran<span>.dev</span></div>
+  <div class="nav-logo">Neeha Kiran</div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#certs">Certs</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="ham" id="ham"><span></span><span></span><span></span></div>
 </nav>
-<div class="mob" id="mob">
-  <a href="#about" onclick="cm()">About</a>
-  <a href="#skills" onclick="cm()">Skills</a>
-  <a href="#projects" onclick="cm()">Projects</a>
-  <a href="#experience" onclick="cm()">Experience</a>
-  <a href="#certs" onclick="cm()">Certs</a>
-  <a href="#contact" onclick="cm()">Contact</a>
-</div>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">// CSE · CYBERSECURITY · 3rd YEAR</div>
-    <h1 class="hero-name">
-      <span class="first">Neeha Kiran </span><br>
-      <span class="last">Kambala</span>
-    </h1>
-    <div class="hero-typed"><span id="typed"></span><span class="cursor-b">_</span></div>
-    <p class="hero-desc">Pre-final year <strong>CSE (Cybersecurity)</strong> student building real Python tools, AI automation systems, and security projects. Shipping things that actually work.</p>
-    <div class="btns">
-      <a href="#projects" class="btn btn-p">View Projects</a>
-      <a href="#contact" class="btn btn-o">Get In Touch</a>
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">// B.Tech CSE · Cybersecurity · 2027</div>
+    <h1>Neeha Kiran<br><span>Kambala</span></h1>
+    <p class="hero-sub">Python Developer & Cybersecurity Enthusiast building real-world security tools and AI-powered applications.</p>
+    <div class="hero-tags">
+      <span class="tag">🐍 Python</span>
+      <span class="tag">🔐 Cybersecurity</span>
+      <span class="tag">⚗️ Flask</span>
+      <span class="tag">🤖 AI Automation</span>
+      <span class="tag">🌐 Web Dev</span>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="n" data-c="5">0</div><div class="l">Projects</div></div>
-      <div class="stat"><div class="n" data-c="12">0</div><div class="l">Certifications</div></div>
-      <div class="stat"><div class="n">281</div><div class="l">National Rank</div></div>
-      <div class="stat"><div class="n" data-c="4">0</div><div class="l">Cyber Sims</div></div>
+    <div class="hero-btns">
+      <a href="https://github.com/kneehakiran" target="_blank" class="btn-primary">View GitHub →</a>
+      <a href="https://linkedin.com/in/neeha-kiran-kambala-0070b52b9" target="_blank" class="btn-outline">LinkedIn</a>
+      <a href="mailto:kneehakiran@gmail.com" class="btn-outline">Email Me</a>
     </div>
   </div>
-</section>
+  <div class="hero-visual">
+    <div class="stat-card fade-in">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Python Projects Built</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Forage Cyber Simulations</div>
+    </div>
+    <div class="stat-card fade-in">
+      <div class="stat-num">281</div>
+      <div class="stat-label">National Rank · IIT Bombay Techfest</div>
+    </div>
+  </div>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 01. WHO AM I</div><h2 class="sh-title">About Me</h2><div class="sh-line"></div></div>
-    <div class="about-grid">
-      <div class="rev">
-        <p class="about-p">I'm a <strong>B.Tech CSE (Cybersecurity)</strong> student at Geethanjali Institute of Science and Technology, Andhra Pradesh — pre-final year and always building something new.</p>
-        <p class="about-p">My focus is <strong>Python development</strong> and <strong>cybersecurity</strong>. I learn by building real projects, not just watching tutorials — and I've shipped tools that actually solve problems.</p>
-        <p class="about-p">Outside of code, I represented <strong>Techfest IIT Bombay</strong> as a College Ambassador, ranked top 281 nationally. I like building things AND communicating them.</p>
-        <div class="atags">
-          <span class="atag">Python Dev</span>
-          <span class="atag">Cybersecurity</span>
-          <span class="atag">AI Automation</span>
-          <span class="atag">Problem Solver</span>
-          <span class="atag">Open to Internships</span>
-        </div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">// what I've built</div>
+  <h2 class="sec-title">Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">🔐</div>
+      <h3>CyberShield – Phishing URL Detector <span class="live-badge">LIVE</span></h3>
+      <p>Flask web app detecting suspicious URLs using multiple phishing rules — @-symbol detection, subdomain depth, keyword matching, and URL length analysis. Dark-themed real-time interface.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Flask</span>
+        <span class="tech-tag">HTML/CSS</span>
+        <span class="tech-tag">Cybersecurity</span>
       </div>
-      <div class="infos rev">
-        <div class="icard"><div class="ic">🎓</div><div><small>Education</small><p>B.Tech CSE (Cybersecurity) · 2023–2027</p></div></div>
-        <div class="icard"><div class="ic">📍</div><div><small>Location</small><p>Nellore, Andhra Pradesh</p></div></div>
-        <div class="icard"><div class="ic">💼</div><div><small>Current</small><p>Python & AI Intern · Vaultsphere Pvt Ltd</p></div></div>
-        <div class="icard"><div class="ic">✉️</div><div><small>Email</small><p>kneehakiran@gmail.com</p></div></div>
+      <div class="project-links">
+        <a href="https://cybershield-phishing-detector.onrender.com" target="_blank" class="project-link">🌐 Live Demo</a>
+        <a href="https://github.com/kneehakiran/CyberShield-Phishing-Detector" target="_blank" class="project-link">GitHub →</a>
       </div>
     </div>
+
+    <div class="project-card">
+      <div class="project-icon">🔒</div>
+      <h3>Secure Message Encryptor</h3>
+      <p>GUI desktop app for text encryption and decryption using Caesar Cipher with a secret numeric key. Features input validation, error handling, and a dark-themed Tkinter interface.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Tkinter</span>
+        <span class="tech-tag">Caesar Cipher</span>
+        <span class="tech-tag">Cryptography</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/kneehakiran/secure-message-encryptor" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🎯</div>
+      <h3>Smart Interview Simulator</h3>
+      <p>Python CLI tool simulating HR and technical interviews with dynamic question generation, auto-scoring system, and file-exported performance reports.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">CLI</span>
+        <span class="tech-tag">File I/O</span>
+        <span class="tech-tag">OOP</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/kneehakiran/smart-interview-simulator" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🛡️</div>
+      <h3>Password Strength Analyzer</h3>
+      <p>Password generation and evaluation tool using entropy scoring and pattern detection algorithms. Identifies weak patterns and generates strong alternatives.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Security</span>
+        <span class="tech-tag">Algorithms</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/kneehakiran/password-strength-analyzer" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">⚔️</div>
+      <h3>QuestVault – Gamified Productivity</h3>
+      <p>Productivity application with XP levelling system, quest mechanics, and file-based persistent storage. Demonstrates OOP principles and game-loop design in Python.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">OOP</span>
+        <span class="tech-tag">File I/O</span>
+        <span class="tech-tag">Game Design</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/kneehakiran/QuestVault" target="_blank" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 02. WHAT I KNOW</div><h2 class="sh-title">Skills</h2><div class="sh-line"></div></div>
-    <div class="skills-grid">
-      <div class="sk rev">
-        <div class="sk-cat">Languages</div>
-        <div class="sk-items">
-          <span class="sp">Python</span>
-          <span class="sp">HTML</span>
-          <span class="sp">CSS</span>
-          <span class="sp">JavaScript (basics)</span>
-          <span class="sp">C (basics)</span>
-        </div>
-      </div>
-      <div class="sk rev">
-        <div class="sk-cat">Cybersecurity</div>
-        <div class="sk-items">
-          <span class="sp">Password Security</span>
-          <span class="sp">Network Basics</span>
-          <span class="sp">Security Awareness</span>
-          <span class="sp">Phishing Analysis</span>
-          <span class="sp">Encryption (learning)</span>
-        </div>
-      </div>
-      <div class="sk rev">
-        <div class="sk-cat">AI & Automation</div>
-        <div class="sk-items">
-          <span class="sp">Prompt Engineering</span>
-          <span class="sp">Generative AI (basics)</span>
-          <span class="sp">Google AI Tools</span>
-          <span class="sp">AI-Assisted Development</span>
-        </div>
-      </div>
-      <div class="sk rev">
-        <div class="sk-cat">Tools & Platforms</div>
-        <div class="sk-items">
-          <span class="sp">Git & GitHub</span>
-          <span class="sp">VS Code</span>
-          <span class="sp">Linux (basics)</span>
-          <span class="sp">AWS (basics)</span>
-        </div>
+  <div class="sec-label">// what I work with</div>
+  <h2 class="sec-title">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">HTML</span>
+        <span class="skill-pill">CSS</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 03. WHAT I BUILT</div><h2 class="sh-title">Projects</h2><div class="sh-line"></div></div>
-    <div class="proj-grid">
-      <div class="pc rev">
-        <div class="pc-num">01</div>
-        <span class="badge live">Live</span>
-        <div class="pc-title">Smart Interview Simulator</div>
-        <p class="pc-desc">Python CLI tool that simulates HR and technical interview rounds. Generates questions, evaluates responses, and produces performance reports automatically.</p>
-        <div class="techs"><span class="tt">Python</span><span class="tt">CLI</span><span class="tt">File I/O</span><span class="tt">AI Logic</span></div>
-        <a href="https://github.com/kneehakiran/smart-interview-simulator" target="_blank" class="plink">GitHub →</a>
+    <div class="skill-group">
+      <h4>Frameworks</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Flask</span>
+        <span class="skill-pill">Tkinter</span>
+        <span class="skill-pill">React.js</span>
       </div>
-      <div class="pc rev">
-        <div class="pc-num">02</div>
-        <span class="badge live">Live</span>
-        <div class="pc-title">Password Strength Analyzer</div>
-        <p class="pc-desc">Security-focused CLI tool for password generation and real-time strength evaluation using entropy scoring and pattern detection algorithms.</p>
-        <div class="techs"><span class="tt">Python</span><span class="tt">Cybersecurity</span><span class="tt">Cryptography</span></div>
-        <a href="https://github.com/kneehakiran/password-strength-analyzer" target="_blank" class="plink">GitHub →</a>
+    </div>
+    <div class="skill-group">
+      <h4>Tools</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">Linux CLI</span>
+        <span class="skill-pill">VS Code</span>
       </div>
-      <div class="pc rev">
-        <div class="pc-num">03</div>
-        <span class="badge live">Live</span>
-        <div class="pc-title">QuestVault</div>
-        <p class="pc-desc">Gamified productivity tracker with an XP leveling system and file-based persistence. Turns daily tasks into a game — built entirely in Python.</p>
-        <div class="techs"><span class="tt">Python</span><span class="tt">OOP</span><span class="tt">File Handling</span></div>
-        <a href="https://github.com/kneehakiran/QuestVault" target="_blank" class="plink">GitHub →</a>
+    </div>
+    <div class="skill-group">
+      <h4>Cloud & AI</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">AWS</span>
+        <span class="skill-pill">Google Cloud</span>
+        <span class="skill-pill">Gemini API</span>
+        <span class="skill-pill">Prompt Engineering</span>
       </div>
-      <div class="pc rev">
-        <div class="pc-num">04</div>
-        <span class="badge live">Live</span>
-        <div class="pc-title">Shopping Cart UI</div>
-        <p class="pc-desc">A simple e-commerce shopping cart interface built while learning web basics. AI-assisted project that helped me understand HTML, CSS, and JavaScript fundamentals through hands-on practice.</p>
-        <div class="techs"><span class="tt">HTML</span><span class="tt">CSS</span><span class="tt">JavaScript</span></div>
-        <a href="https://github.com/kneehakiran/shopping-cart" target="_blank" class="plink">GitHub →</a>
+    </div>
+    <div class="skill-group">
+      <h4>Cybersecurity</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">VAPT</span>
+        <span class="skill-pill">Phishing Detection</span>
+        <span class="skill-pill">Encryption</span>
+        <span class="skill-pill">Network Security</span>
+        <span class="skill-pill">Incident Response</span>
       </div>
-      <div class="pc rev">
-        <div class="pc-num">05</div>
-        <span class="badge live">Live</span>
-        <div class="pc-title">Secure Message Encryptor</div>
-        <p class="pc-desc">GUI-based message encryptor & decryptor built with Python and Tkinter. Caesar cipher logic with input validation, error handling, and a dark-themed desktop interface.</p>
-        <div class="techs"><span class="tt">Python</span><span class="tt">Tkinter</span><span class="tt">Caesar Cipher</span><span class="tt">GUI</span></div>
-        <a href="https://github.com/kneehakiran/secure-message-encryptor" target="_blank" class="plink">GitHub →</a>
+    </div>
+    <div class="skill-group">
+      <h4>Learning</h4>
+      <div class="skill-pills">
+        <span class="skill-pill">Post-Quantum Cryptography</span>
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">Quantum Computing</span>
       </div>
     </div>
   </div>
@@ -362,149 +494,89 @@ footer{border-top:1px solid var(--border);padding:1.8rem;text-align:center;font-
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 04. EXPERIENCE</div><h2 class="sh-title">Timeline</h2><div class="sh-line"></div></div>
-    <div class="tl">
-      <div class="tli rev">
-        <div class="tl-dot"></div>
-        <div class="tl-date">MAY 2026 – PRESENT</div>
-        <div class="tl-card">
-          <div class="tl-role">Python & AI Automation Intern</div>
-          <div class="tl-org">Vaultsphere Private Limited · Remote</div>
-          <ul class="tl-bul">
-            <li>Currently undergoing structured Python training as part of the internship onboarding program</li>
-          </ul>
-        </div>
+  <div class="sec-label">// where I've worked</div>
+  <h2 class="sec-title">Experience</h2>
+  <div class="exp-list">
+    <div class="exp-card">
+      <div class="exp-dot">🐍</div>
+      <div class="exp-content">
+        <h3>Python & AI Automation Intern</h3>
+        <div class="exp-org">Vaultsphere Private Limited</div>
+        <div class="exp-date">May 2026 – Present · Remote</div>
+        <p>Undergoing structured Python & AI Automation internship — learning automation workflows, AI integration patterns, and industry development practices under mentor guidance.</p>
       </div>
-      <div class="tli rev">
-        <div class="tl-dot"></div>
-        <div class="tl-date">JUL 2025 – MAY 2026</div>
-        <div class="tl-card">
-          <div class="tl-role">College Ambassador</div>
-          <div class="tl-org">Techfest, IIT Bombay — Asia's Largest Tech Festival · Remote</div>
-          <ul class="tl-bul">
-            <li>Ranked <strong style="color:var(--cyan)">top 281 nationally</strong> among all ambassadors across India</li>
-            <li>Led student outreach, event coordination, and social media campaigns</li>
-          </ul>
-        </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-dot">🏆</div>
+      <div class="exp-content">
+        <h3>College Ambassador — Ranked Top 281 Nationally</h3>
+        <div class="exp-org">Techfest, IIT Bombay (Asia's Largest Tech Festival)</div>
+        <div class="exp-date">Jul 2025 – May 2026 · Remote</div>
+        <p>Led student outreach, event coordination, and social media promotion. Ranked top 281 nationally among all College Ambassadors across India. Received official completion certificate.</p>
       </div>
-      <div class="tli rev">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2026</div>
-        <div class="tl-card">
-          <div class="tl-role">Volunteer — C-Debugging Event</div>
-          <div class="tl-org">Geethanjali Institute of Science and Technology</div>
-          <ul class="tl-bul">
-            <li>Provided debugging support and coordinated event logistics</li>
-          </ul>
-        </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-dot">🔧</div>
+      <div class="exp-content">
+        <h3>Volunteer – C-Debugging Event</h3>
+        <div class="exp-org">Geethanjali Institute of Science & Technology</div>
+        <div class="exp-date">2026</div>
+        <p>Coordinated event logistics and provided on-site debugging support to student participants during college-level competition.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTS -->
-<section id="certs">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 05. CREDENTIALS</div><h2 class="sh-title">Certifications</h2><div class="sh-line"></div></div>
-    <div class="cg">
-      <div class="cc rev"><div class="cc-ic">🌐</div><div class="cc-name">Google AI Essentials</div><div class="cc-iss">Google / Coursera</div></div>
-      <div class="cc rev"><div class="cc-ic">✨</div><div class="cc-name">Google Prompting Essentials</div><div class="cc-iss">Google</div></div>
-      <div class="cc rev"><div class="cc-ic">☁️</div><div class="cc-name">AWS Cloud Workshop</div><div class="cc-iss">Hands-on · EC2, VPC</div></div>
-      <div class="cc rev"><div class="cc-ic">🔬</div><div class="cc-name">Google Cloud Study Jams</div><div class="cc-iss">19 Labs Completed</div></div>
-      <div class="cc rev"><div class="cc-ic">🛡️</div><div class="cc-name">Cisco Networking Basics</div><div class="cc-iss">Cisco</div></div>
-      <div class="cc rev"><div class="cc-ic">🔐</div><div class="cc-name">Manage Security Risks</div><div class="cc-iss">Google / Coursera</div></div>
-      <div class="cc rev"><div class="cc-ic">🏛️</div><div class="cc-name">NPTEL Software Engineering</div><div class="cc-iss">IIT / NPTEL</div></div>
-      <div class="cc rev"><div class="cc-ic">🐍</div><div class="cc-name">Python · IIT Bombay</div><div class="cc-iss">Spoken Tutorial · 4 Credits</div></div>
-      <div class="cc rev"><div class="cc-ic">💻</div><div class="cc-name">Web Dev Fundamentals</div><div class="cc-iss">IBM SkillsBuild</div></div>
-      <div class="cc rev"><div class="cc-ic">🤖</div><div class="cc-name">Gen AI for Software Dev</div><div class="cc-iss">IBM SkillsBuild</div></div>
-      <div class="cc rev"><div class="cc-ic">⭐</div><div class="cc-name">Python Badge (2-Star)</div><div class="cc-iss">HackerRank</div></div>
-      <div class="cc rev"><div class="cc-ic">📋</div><div class="cc-name">C Programming · 92.5%</div><div class="cc-iss">IIT Bombay Spoken Tutorial</div></div>
-    </div>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sec-label">// what I've learned</div>
+  <h2 class="sec-title">Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert-card"><div class="cert-icon">🟡</div><div><h4>Google AI Essentials</h4><p>Google / Coursera</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟡</div><div><h4>Prompting Essentials</h4><p>Google / Coursera</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟡</div><div><h4>Foundations of Cybersecurity</h4><p>Google / Coursera</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🔵</div><div><h4>Networking Basics</h4><p>Cisco / Coursera</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🔵</div><div><h4>Manage Security Risks</h4><p>Cisco / Coursera</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🔴</div><div><h4>Cloud Study Jams 2025</h4><p>Google Cloud · 19 labs + Gen AI Arcade</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟠</div><div><h4>AWS Cloud Workshop</h4><p>VPC, EC2, Subnets · 3-day hands-on</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🔵</div><div><h4>IBM SkillsBuild</h4><p>Web Dev & Generative AI</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟢</div><div><h4>NPTEL Python (4 credits)</h4><p>IIT Bombay Spoken Tutorial</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟢</div><div><h4>NPTEL Software Engineering & IoT</h4><p>NPTEL / IIT Bombay</p></div></div>
+    <div class="cert-card"><div class="cert-icon">⚪</div><div><h4>ML Bootcamp</h4><p>GDSC & TFUG Hyderabad · 7 Days</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟣</div><div><h4>Generative AI Basics</h4><p>SAWIT.AI Learnathon · GUVI</p></div></div>
+    <div class="cert-card"><div class="cert-icon">🟠</div><div><h4>SEO Principles</h4><p>Semrush Academy</p></div></div>
+    <div class="cert-card"><div class="cert-icon">⚫</div><div><h4>Python Badge (2-star)</h4><p>HackerRank</p></div></div>
   </div>
-</section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="wrap">
-    <div class="sh rev"><div class="sh-tag">// 06. HIGHLIGHTS</div><h2 class="sh-title">Achievements</h2><div class="sh-line"></div></div>
-    <div class="ag">
-      <div class="ac rev"><div class="ac-ic">🚀</div><div><div class="ac-title">Top 281 Nationally — Techfest IIT Bombay</div><div class="ac-sub">College Ambassador · Asia's Largest Tech Festival</div></div></div>
-      <div class="ac rev"><div class="ac-ic">🥉</div><div><div class="ac-title">3rd Prize — ISRO Essay Competition</div><div class="ac-sub">Satish Dhawan Space Centre · World Space Week 2020</div></div></div>
-      <div class="ac rev"><div class="ac-ic">🔒</div><div><div class="ac-title">4 Forage Cybersecurity Simulations</div><div class="ac-sub">Mastercard · Tata · ANZ Australia · Datacom</div></div></div>
-      <div class="ac rev"><div class="ac-ic">⚡</div><div><div class="ac-title">PARANOX 2.0 Hackathon</div><div class="ac-sub">Hands-on innovation & problem solving</div></div></div>
-      <div class="ac rev"><div class="ac-ic">🏛️</div><div><div class="ac-title">INVICTA-2K26 National Tech Symposium</div><div class="ac-sub">MITS · Gradient Gang Event</div></div></div>
-      <div class="ac rev"><div class="ac-ic">📄</div><div><div class="ac-title">Multiple Paper Presentations</div><div class="ac-sub">Narayana College Tech Fest 2025 · Geethanjali Institute of Science & Technology</div></div></div>
+  <div style="margin-top:2.5rem">
+    <div class="sec-label" style="margin-bottom:1rem">// Forage Cybersecurity Simulations</div>
+    <div class="forage-grid">
+      <div class="forage-card"><div class="company">Mastercard</div><div class="topic">Phishing identification & security awareness</div></div>
+      <div class="forage-card"><div class="company">Tata Group</div><div class="topic">Vulnerability assessment & risk prioritisation</div></div>
+      <div class="forage-card"><div class="company">ANZ Australia</div><div class="topic">Security investigation & reporting</div></div>
+      <div class="forage-card"><div class="company">Datacom</div><div class="topic">Incident response from detection to resolution</div></div>
+      <div class="forage-card"><div class="company">Deloitte Australia</div><div class="topic">Cyber investigation & log analysis</div></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="wrap">
-    <div class="sh rev" style="text-align:center"><div class="sh-tag" style="text-align:center">// 07. GET IN TOUCH</div><h2 class="sh-title">Contact</h2><div class="sh-line" style="margin:0 auto .8rem"></div></div>
-    <div class="ct-wrap rev">
-      <p class="ct-desc">Open to <strong style="color:var(--cyan)">internship opportunities</strong> in Python development, AI automation, or cybersecurity. Let's connect.</p>
-      <div class="ct-email">kneehakiran@gmail.com</div>
-      <div class="ct-links">
-        <a href="mailto:kneehakiran@gmail.com" class="cl">📧 Email</a>
-        <a href="https://linkedin.com/in/neeha-kiran-kambala-0070b52b9/" target="_blank" class="cl">💼 LinkedIn</a>
-        <a href="https://github.com/kneehakiran" target="_blank" class="cl">🐙 GitHub</a>
-      </div>
+  <div class="contact-box">
+    <h2>Let's Connect</h2>
+    <p>Open to internship opportunities in Python development, AI automation, and Cybersecurity.</p>
+    <div class="contact-links">
+      <a href="mailto:kneehakiran@gmail.com" class="contact-link">📧 kneehakiran@gmail.com</a>
+      <a href="https://linkedin.com/in/neeha-kiran-kambala-0070b52b9" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="https://github.com/kneehakiran" target="_blank" class="contact-link">🐙 GitHub</a>
+      <a href="https://cybershield-phishing-detector.onrender.com" target="_blank" class="contact-link">🔐 CyberShield</a>
     </div>
   </div>
 </section>
 
-<footer>Built by <span style="color:var(--cyan)">Neeha Kiran Kambala</span> · 2026 · CSE · Cybersecurity</footer>
+<footer>
+  <p>© 2026 Neeha Kiran Kambala · Built with HTML & CSS · Nellore, AP, India</p>
+</footer>
 
-<script>
-// PARTICLE BG
-const cv=document.getElementById('bg'),cx=cv.getContext('2d');
-let W,H,pts=[];
-function rsz(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
-rsz();addEventListener('resize',rsz);
-class P{
-  constructor(){this.r();}
-  r(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.25+.05;this.s=Math.random()*1.2+.3;this.c=Math.random()>.6?'0,229,255':'192,132,252';}
-  u(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r();}
-  d(){cx.beginPath();cx.arc(this.x,this.y,this.s,0,Math.PI*2);cx.fillStyle=`rgba(${this.c},${this.a})`;cx.fill();}
-}
-for(let i=0;i<80;i++)pts.push(new P());
-(function loop(){
-  cx.clearRect(0,0,W,H);
-  pts.forEach(p=>{p.u();p.d();});
-  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-    if(d<100){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.strokeStyle=`rgba(0,229,255,${.04*(1-d/100)})`;cx.lineWidth=.4;cx.stroke();}
-  }
-  requestAnimationFrame(loop);
-})();
-
-// TYPING
-const roles=['Python Developer','Cybersecurity Student','AI Automation Intern','Builder & Learner'];
-let ri=0,ci=0,del=false,tel=document.getElementById('typed');
-function t(){
-  const cur=roles[ri];
-  if(!del){tel.textContent=cur.slice(0,++ci);if(ci===cur.length){del=true;setTimeout(t,1600);return;}}
-  else{tel.textContent=cur.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;}}
-  setTimeout(t,del?45:85);
-}
-t();
-
-// COUNT
-function cnt(el){
-  const tg=+el.dataset.c;if(!tg)return;
-  let c=0;const iv=setInterval(()=>{c=Math.min(c+1,tg);el.textContent=c+(tg>=5?'+':'');if(c>=tg)clearInterval(iv);},50);
-}
-document.querySelectorAll('[data-c]').forEach(cnt);
-
-// REVEAL
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');}),{threshold:.08});
-document.querySelectorAll('.rev').forEach(r=>obs.observe(r));
-
-// MOBILE
-document.getElementById('ham').onclick=()=>document.getElementById('mob').classList.toggle('open');
-function cm(){document.getElementById('mob').classList.remove('open');}
-</script>
 </body>
 </html>
